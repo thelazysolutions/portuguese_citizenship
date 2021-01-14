@@ -94,7 +94,7 @@
                     <li><a href="index.html" class="nav-link search_trigger"><i class="ion-android-person"></i></a>
                        
                     </li>
-                    <li><a href="index.html" class="nav-link search_trigger"><i class="ion-log-out" style="color: #000;font-size: 24px;"></i></a>
+                    <li><a href="#" id="logout" class="nav-link search_trigger"><i class="ion-log-out" style="color: #000;font-size: 24px;"></i></a>
                        
                     </li>
                 </ul>
@@ -117,11 +117,12 @@
                             </div>
                         </div>
                     </div>
-                        <form method="post" name="enq">
+                        <form method="post" name="enq" id="enq">
+                            <input type="hidden" id="client_id" name="client_id" value="">  
                         <div class="row">
                             <div class="form-group col-lg-3 col-md-6">
                                 <label  style="font-weight: 700;">Registration : <span class="asterisk-color">*</span></label>
-                                <div class="custom_select">
+                                <div class="custom_select" name = 'registration'>
                                     <select class="form-control not_chosen">
                                     	<option value="">Register</option>
                                     	<option value="1">Instagram</option>
@@ -132,7 +133,7 @@
                             <div class="form-group col-lg-3 col-md-6">
                                 <label  style="font-weight: 700;">To Register : <span class="asterisk-color">*</span></label>
                                 <div class="custom_select">
-                                    <select class="form-control not_chosen">
+                                    <select class="form-control not_chosen" name='to_register'>
                                     	<option value="">To Register</option>
                                     	<option value="1">Instagram</option>
                                     	<option value="2">Phone</option>
@@ -142,7 +143,7 @@
                             <div class="form-group col-lg-3 col-md-6">
                                 <label  style="font-weight: 700;">Document : <span class="asterisk-color">*</span></label>
                                 <div class="custom_select">
-                                    <select class="form-control not_chosen">
+                                    <select class="form-control not_chosen" name='document'>
                                     	<option value="1">Document</option>
                                     	<option value="2">Instagram</option>
                                     	<option value="3">Phone</option>
@@ -152,7 +153,7 @@
                             <div class="form-group col-lg-3 col-md-6">
                                 <label  style="font-weight: 700;">Document Of : <span class="asterisk-color">*</span></label>
                                 <div class="custom_select">
-                                    <select class="form-control not_chosen">
+                                    <select class="form-control not_chosen" name = "document_of">
                                     	<option value="">Document</option>
                                     	<option value="1">Instagram</option>
                                     	<option value="2">Phone</option>
@@ -161,26 +162,26 @@
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
                                 <label  style="font-weight: 700;">Name : <span class="asterisk-color">*</span></label>
-                                <input required="required" placeholder="Name *" id="reffered" class="form-control" name="name" type="text">
+                                <input required="" placeholder="Name *" id="name" class="form-control" name="name" type="text">
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
                                 <label  style="font-weight: 700;">Place: <span class="asterisk-color">*</span></label>
-                                <input required="required" placeholder="Place *" id="place" class="form-control" name="place" type="text">
+                                <input required="" placeholder="Place *" id="place" class="form-control" name="place" type="text">
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
                                 <label  style="font-weight: 700;"> Date: <span class="asterisk-color">*</span></label>
                                 
-                                <input required="required" placeholder="DD/MM/YYYY" class="form-control datepicker" name="date" type="text">
+                                <input required="" placeholder="DD/MM/YYYY" class="form-control datepicker" name="date" id="date" type="text">
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
                                 <label  style="font-weight: 700;">Reg Date: <span class="asterisk-color">*</span></label>
                                 
-                                <input required="required" placeholder="DD/MM/YYYY" class="form-control datepicker" name="date" type="text">
+                                <input required="" placeholder="DD/MM/YYYY" class="form-control datepicker" name="registered_date" type="text">
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
                             	<label  style="font-weight: 700;">Doc Available : <span class="asterisk-color">*</span></label>
                                 <div class="custom_select">
-                                    <select class="form-control not_chosen">
+                                    <select class="form-control not_chosen" name = "doc_available">
                                     	<option value="">Document</option>
                                     	<option value="1">Instagram</option>
                                     	<option value="2">Phone</option>
@@ -190,7 +191,7 @@
                             <div class="form-group col-lg-3 col-md-6">
                             	<label  style="font-weight: 700;">Doc in Office : <span class="asterisk-color">*</span></label>
                                 <div class="custom_select">
-                                    <select class="form-control not_chosen">
+                                    <select class="form-control not_chosen" name= "doc_in_office">
                                     	<option value="">Document</option>
                                     	<option value="1">Instagram</option>
                                     	<option value="2">Phone</option>
@@ -200,48 +201,52 @@
                             <div class="form-group col-lg-3 col-md-6">
                                 <label  style="font-weight: 700;">SAC Date: <span class="asterisk-color">*</span></label>
                                 
-                                <input required="required" placeholder="DD/MM/YYYY" class="form-control datepicker" name="date" type="text">
+                                <input required="" placeholder="DD/MM/YYYY" class="form-control datepicker" name="sac_date" type="text">
+                            </div>
+                            <div class="form-group col-lg-3 col-md-6">
+                            	<label  style="font-weight: 700;">Billable: <span class="asterisk-color">*</span></label>
+                                <div class="custom_select">
+                                    <select class="form-control not_chosen" name= "billable">
+                                    	<option value="">Document</option>
+                                    	<option value="1">Instagram</option>
+                                    </select>
+                                </div>
                             </div>
                        
                         <div class="form-group col-lg-3 col-md-6">
-                            <label  style="font-weight: 700;">Attested : <span class="asterisk-color">*</span></label>
-                            <div class="custom_select">
-                                <select class="form-control not_chosen">
-                                    <option value="">Document</option>
-                                    <option value="1">Instagram</option>
-                                    <option value="2">Phone</option>
-                                </select>
-                            </div>
+                            <label  style="font-weight: 700;">Attested Date: <span class="asterisk-color">*</span></label>
+                
+                            <input required="" placeholder="DD/MM/YYYY" class="form-control datepicker" name="a/t_date" type="text">
                         </div>
                         <div class="form-group col-lg-3 col-md-6">
                             <label  style="font-weight: 700;">Translation Date: <span class="asterisk-color">*</span></label>
                 
-                            <input required="required" placeholder="DD/MM/YYYY" class="form-control datepicker" name="date" type="text">
+                            <input required="" placeholder="DD/MM/YYYY" class="form-control datepicker" name="translation_date" type="text">
                         </div>
                         <div class="form-group col-lg-3 col-md-6">
                             <label  style="font-weight: 700;">Notary Date: <span class="asterisk-color">*</span></label>
                             
-                            <input required="required" placeholder="DD/MM/YYYY" class="form-control datepicker" name="date" type="text">
+                            <input required="" placeholder="DD/MM/YYYY" class="form-control datepicker" name="notary_date" type="text">
                         </div>
                         <div class="form-group col-lg-3 col-md-6">
                             <label  style="font-weight: 700;">Collector Date: <span class="asterisk-color">*</span></label>
                            
-                            <input required="required" placeholder="DD/MM/YYYY" class="form-control datepicker" name="date" type="text">
+                            <input required="" placeholder="DD/MM/YYYY" class="form-control datepicker" name="collector_date" type="text">
                         </div>
                         <div class="form-group col-lg-3 col-md-6">
-                            <label  style="font-weight: 700;">Apo Date: <span class="asterisk-color">*</span></label>
+                            <label  style="font-weight: 700;">Apostle Date: <span class="asterisk-color">*</span></label>
                             
-                            <input required="required" placeholder="DD/MM/YYYY" class="form-control datepicker" name="date" type="text">
+                            <input required="" placeholder="DD/MM/YYYY" class="form-control datepicker" name="apostle_date" type="text">
                         </div>
                         <div class="form-group col-lg-3 col-md-6">
-                            <label  style="font-weight: 700;">Sent To PT Date Date: <span class="asterisk-color">*</span></label>
+                            <label  style="font-weight: 700;">Sent To PT Date : <span class="asterisk-color">*</span></label>
     
-                            <input required="required" placeholder="DD/MM/YYYY" class="form-control datepicker" name="date" type="text">
+                            <input required="" placeholder="DD/MM/YYYY" class="form-control datepicker" name="send_to_pt_date" type="text">
                         </div>
                         <div class="form-group col-lg-3 col-md-6">
                             <label  style="font-weight: 700;">Doc reached : <span class="asterisk-color">*</span></label>
                             <div class="custom_select">
-                                <select class="form-control not_chosen">
+                                <select class="form-control not_chosen" name = "doc_reached_pt">
                                     <option value="">Document</option>
                                     <option value="1">Instagram</option>
                                     <option value="2">Phone</option>
@@ -250,20 +255,28 @@
                         </div>
                         <div class="form-group col-lg-3 col-md-6">
                             <label  style="font-weight: 700;">Received in PT: <span class="asterisk-color">*</span></label>
-                            <input required="required" placeholder="Received in PT *" id="reffered" class="form-control" name="name" type="text">
+                            <input required="" placeholder="DD/MM/YYYY" class="form-control datepicker" name="received_in_pt_date" type="text">
                         </div>
                         <div class="form-group col-lg-3 col-md-6">
                             <label  style="font-weight: 700;">Submitted Date: <span class="asterisk-color">*</span></label>
-                            <input required="required" placeholder="DD/MM/YYYY" class="form-control datepicker" name="date" type="text">
+                            <input required="" placeholder="DD/MM/YYYY" class="form-control datepicker" name="submitted_date" type="text">
                         </div>
                         <div class="form-group col-lg-3 col-md-6">
                             <label  style="font-weight: 700;">Concluded Date: <span class="asterisk-color">*</span></label>
-                            <input required="required" placeholder="DD/MM/YYYY" class="form-control datepicker" name="date" type="text">
+                            <input required="" placeholder="DD/MM/YYYY" class="form-control datepicker" name="concluded_date" type="text">
+                        </div>
+                        <div class="form-group col-lg-3 col-md-6">
+                            <label  style="font-weight: 700;">Doc Issued Date: <span class="asterisk-color">*</span></label>
+                            <input required="" placeholder="DD/MM/YYYY" class="form-control datepicker" name="doc_issue_date" type="text">
+                        </div>
+                        <div class="form-group col-lg-3 col-md-6">
+                            <label  style="font-weight: 700;">Reg Bill: <span class="asterisk-color">*</span></label>
+                            <input required="" placeholder="Reg Bill *" id="place" class="form-control" name="reg_bill" type="text">
                         </div>
                         <div class="form-group col-lg-3 col-md-6">
                             <label  style="font-weight: 700;">Submitted : <span class="asterisk-color">*</span></label>
                             <div class="custom_select">
-                                <select class="form-control not_chosen">
+                                <select class="form-control not_chosen" name = "submitted">
                                     <option value="">Document</option>
                                     <option value="1">Instagram</option>
                                     <option value="2">Phone</option>
@@ -274,13 +287,13 @@
                         <div class="form-group col-md-3">
                             <label  style="font-weight: 700;">Attachment: <span class="asterisk-color">*</span></label>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                <input type="file" class="custom-file-input" name="file" id="file" aria-describedby="file">
+                                <label class="custom-file-label" for="file">Choose file</label>
                               </div>
                         </div>
                         <div class="form-group col-lg-3 col-md-6">
                             <label  style="font-weight: 700;">Comment : <span class="asterisk-color">*</span></label>
-                            <textarea required="required" placeholder="Message " id="comment" class="form-control" name="comment" rows="3"></textarea>
+                            <textarea required="" placeholder="Message " name='comment' id="comment" class="form-control" name="comment" rows="3"></textarea>
                         </div>
                        
                        
@@ -305,58 +318,12 @@
         <div class="row align-items-center">
             <div class="col-lg-12 col-md-12 col-sm-12 animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.1s" style="animation-delay: 0.1s; opacity: 1;">
                 <div class="heading_s1 text-center"> 
-                  <h2>Client Details</h2>
+                  <h2>Document Details</h2>
                 </div>
                
                 <div class="row">
-                    <table id="customers">
-                        <tr>
-                          <th>Delete</th>
-                          <th>Edit</th>
-                          <th>Sr. No.</th>
-                          <th>Registration</th>
-                          <th>To Register</th>
-                          <th>Document</th>
-                        </tr>
-                        <tr>
-                            <td><a href="#"><i class="ion-android-delete" style="font-size: 25px;color: #dc3545;"></i></a></td>
-                            <td><a href="#"><i class="ion-edit" style="font-size: 25px;color:#218838;"></i></a></td>
-                          <td>1</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#"><i class="ion-android-delete" style="font-size: 25px;color: #dc3545;"></i></a></td>
-                            <td><a href="#"><i class="ion-edit" style="font-size: 25px;color:#218838;"></i></a></td>
-                          <td>2</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#"><i class="ion-android-delete" style="font-size: 25px;color: #dc3545;"></i></a></td>
-                            <td><a href="#"><i class="ion-edit" style="font-size: 25px;color:#218838;"></i></a></td>
-                          <td>3</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#"><i class="ion-android-delete" style="font-size: 25px;color: #dc3545;"></i></a></td>
-                            <td><a href="#"><i class="ion-edit" style="font-size: 25px;color:#218838;"></i></a></td>
-                          <td>4</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          
-                        </tr>
-                        
-                       
+                    <table id="customers">          
                       </table>
-                      
-                	
-                   
                 </div>
             </div>
         </div>
@@ -442,6 +409,174 @@
 </footer>
 <!-- Latest jQuery --> 
 <script src="assets/js/jquery-1.12.4.min.js"></script>
+<script>
+
+document.getElementById("logout").onclick = function() {myFunction()};
+// document.getElementById('date').value = new Date().toDateInputValue();
+
+    function myFunction() {
+      localStorage.removeItem("data");
+      localStorage.removeItem("login");
+      location.href = 'index.html';
+    }
+
+    (function ($) {
+        // get localstorage
+        // if found print on the screen or alert
+        
+        if (typeof(Storage) !== "undefined") {
+        // Code for localStorage/sessionStorage.
+        if( localStorage.client_id){
+            $('#client_id').val(localStorage.client_id)   
+        }
+        } else {
+        location.href = 'index.html';
+        // Sorry! No Web Storage support..
+        }
+        
+        $.fn.serializeFormJSON = function () {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (o[this.name]) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+        
+
+        function getData(e){
+
+        $.ajax({
+            url: "http://localhost:5000/document/",
+            dataType: "json",
+            type: "post",
+            crossDomain: true,
+            headers: {
+                        "Content-Type": "application/json"
+                    },
+            success: function (data, textStatus, jQxhr) {
+                // Clear table
+                $('table').empty()
+
+                $('table').append(
+                    $('<tr>'),
+                    $('<th>').text("Sr. No."),
+                    $('<th>').text("Document"),
+                    $('<th>').text("Registration"),
+                    $('<th>').text("To Register"),
+                    $('<th>').text("Edit"),
+                    $('<th>').text("Delete"),
+                    $('</tr>')
+                );
+
+                $.each(data, function(i, item) {
+            var $tr = $('table').append(
+                $('<tr>'),
+                $('<td>').text(i),
+                $('<td>').html("<a href=\""+item.attachment+"\">"+item.name+"</a>"),
+                $('<td>').text(item.registration),
+                $('<td>').text(item.to_register),
+                $('<td>').html("<a href=\"#\"><i class=\"ion-edit\" style=\"font-size: 25px;color:#218838;\"></i></a>"),
+                $('<td>').html("<a href=\"#\"><i class=\"ion-android-delete\" style=\"font-size: 25px;color: #dc3545;\"></i></a>"),
+                $('</tr>')
+            ); 
+            
+        });
+
+            if(data === {})
+            {console.log('empty')}
+                // add multi table generation
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+            console.log(errorThrown);
+            },
+        });
+
+        // e.preventDefault();
+        }
+
+
+        function processForm(e) {
+            console.log('processing')
+            try{
+                var store = JSON.stringify($(this).serializeFormJSON())
+                localStorage.setItem("post", store);
+                var form_data = new FormData();                  
+                form_data.append('file', $('#file').prop('files')[0]);
+
+                $.ajax({
+                    url: "http://localhost:5000/document/file",
+                    type: 'POST',
+                    data: form_data,
+                    success: function (data) {
+                        if(data.hasOwnProperty('url')){
+
+                        if(!localStorage.post)
+                            return
+                        var op_data = JSON.stringify(localStorage.post)
+                        localStorage.removeItem("post");
+                        op_data1 = JSON.parse(op_data)
+                        op_data2 = JSON.parse(op_data1)
+                        op_data2['attachment'] = data.url
+                        $.ajax({
+                            url: "http://localhost:5000/document/",
+                            dataType: "json",
+                            type: "put",
+                            crossDomain: true,
+                            headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                            data: JSON.stringify(op_data2),
+                            success: function (data, textStatus, jQxhr) {
+                                if(data === {})
+                                    console.log('empty')
+                                if(data.hasOwnProperty('error')){
+                                    alert('Error')
+                                    //
+                                }
+                                alert('Document added')
+                                getData()
+                            },
+                            error: function (jqXhr, textStatus, errorThrown) {
+                            console.log(errorThrown);
+                            },
+                        });
+
+                    }
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            }
+            catch(err){
+                console.log('Error in the code')
+                console.log(err)
+            }
+
+
+            // return 0
+            
+            // upload the file to S3 and get Link from it. 
+
+
+
+            e.preventDefault();
+        }
+        $("#enq").submit(processForm);
+        getData()
+    })(jQuery);
+
+
+
+</script>
 <!-- jquery-ui --> 
 <script src="assets/js/jquery-ui.js"></script> 
 <!-- popper min js --> 

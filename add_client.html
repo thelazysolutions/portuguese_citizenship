@@ -26,7 +26,6 @@
 <link rel="stylesheet" href="assets/css/themify-icons.css">
 <!-- FontAwesome CSS -->
 <link rel="stylesheet" href="assets/css/all.min.css">
-<link rel="stylesheet" href="assets/css/main.css">
 <!--- owl carousel CSS-->
 <link rel="stylesheet" href="assets/owlcarousel/css/owl.carousel.min.css">
 <link rel="stylesheet" href="assets/owlcarousel/css/owl.theme.css">
@@ -37,10 +36,6 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/responsive.css">
 <link rel="stylesheet" id="layoutstyle" href="assets/color/theme.css">
-
-
-<!-- DatePicker CSS -->
-<link href="assets/css/datepicker.min.css" rel="stylesheet">
 <style>
     #customers {
       font-family: Arial, Helvetica, sans-serif;
@@ -73,7 +68,7 @@
 <header class="header_wrap dark_skin hover_menu_style3 box_shadow3">
   <div class="container">
     <nav class="navbar navbar-expand-lg"> 
-    	<a class="navbar-brand" href="index.php">
+    	<a class="navbar-brand" href="index.html">
             <h2 style="
             font-weight: 600;
             text-transform: uppercase;
@@ -83,7 +78,6 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="ion-android-menu"></span> </button>
       	<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav">
-               
                 <li>
                     <a class="nav-link page-scroll active" href="dashboard.html" style="color:#000;">Home</a>
                 </li>
@@ -91,13 +85,13 @@
                     <a class="nav-link page-scroll active" href="add_client.html" style="color:#000;">Add Client</a>
                 </li>
                 <li>
-                    <a class="nav-link page-scroll active" href="document.html" style="color:#000;">Document</a>
+                    <a class="nav-link page-scroll active" href="#home_section" style="color:#000;">Document</a>
                 </li>
                 <ul class="navbar-nav attr-nav align-items-center">
                     <li><a href="index.html" class="nav-link search_trigger"><i class="ion-android-person"></i></a>
                        
                     </li>
-                    <li><a href="index.html" class="nav-link search_trigger"><i class="ion-log-out" style="color: #000;font-size: 24px;"></i></a>
+                    <li id = "logout"><a href="index.html" class="nav-link search_trigger"><i class="ion-log-out" style="color: #000;font-size: 24px;"></i></a>
                        
                     </li>
                 </ul>
@@ -107,61 +101,46 @@
   </div>
 </header>
 <!-- END HEADER --> 
+
 <section id="contact">
-	<div class="container-fluid">
+	<div class="container">
     	<div class="row">
             <div class="col-lg-12 col-md-12 animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.4s" style="animation-delay: 0.4s; opacity: 1;">
                 <div class="field_form" style="box-shadow: 0 0 5px rgba(0,0,0,0.2);padding:20px;">
                     <div class="row">
                         <div class="col-md-12 animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.2s" style="animation-delay: 0.2s; opacity: 1;">
-                            <div class="heading_s1 text-center" style="padding:27px;"> 
+                            <div class="heading_s1 text-center">
                                 <h2>Add Client</h2>
+                                <p id = 'nologin'></p>
                             </div>
                         </div>
                     </div>
-                        <form method="post" name="enq">
-                            <!--<div class="row">
-                                <div class="form-group col-lg-4 col-md-6">
-                                    <label>Mater Id * :</label>
-                                    <input required="required" placeholder="Master Id *" id="master_id" class="form-control" name="master_id" type="number">
-                                 </div>
-                                 <div class="form-group col-lg-4 col-md-6">
-                                    <label>Phone Number * :</label>
-                                    <input required="required" placeholder="Phone Number *" id="phone_no" class="form-control" name="phone_no" type="phone">
-                                 </div>
-                                 <div class="form-group col-lg-4 col-md-6">
-                                    <label>Branch :</label>
-                                    <input required="required" placeholder="Branch *" id="branch" class="form-control" name="branch" type="text">
-                                 </div>
-                                </div>
-                            <div class="different_login animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.7s" style="animation-delay: 0.7s; opacity: 1;">
-                                <span><button class="btn btn-danger btn-radius btn-xs mb-2" type="button">Primary Details</button></span>
-                            </div>-->
+                        <form method="post" name="enq" id = "enq">
                         <div class="row">
                             <div class="form-group col-lg-3 col-md-6">
-                                <label style="font-weight: 700;">Client Name : <span class="asterisk-color">*</span></label>
-                                <input required="required" placeholder="Client Name" id="first-name" class="form-control" name="name" type="text">
+                                <label>Client Name :</label>
+                                <input required="required" placeholder="Client Name *" id="first-name" class="form-control" name="name" type="text">
                              </div>
                             <div class="form-group col-lg-3 col-md-6">
-                                <label style="font-weight: 700;">Email id : <span class="asterisk-color">*</span></label>
-                                <input required="required" placeholder=" Email id " id="email1" class="form-control" name="email1" type="email">
+                                <label>Email id :</label>
+                                <input required="required" placeholder=" Email id *" id="email1" class="form-control" name="email" type="email">
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
-                                <label style="font-weight: 700;">Email id2 : <span class="asterisk-color">*</span></label>
-                                <input required="required" placeholder="Email id2 " id="email2" class="form-control" name="email2" type="email">
+                                <label>Email id2 :</label>
+                                <input required="required" placeholder="Email id2 *" id="email2" class="form-control" name="email_alt" type="email">
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
-                                <label style="font-weight: 700;">Client Location : <span class="asterisk-color">*</span></label>
-                                <input required="required" placeholder="Client Location " id="location" class="form-control" name="location" type="text">
+                                <label>Client Location :</label>
+                                <input required="required" placeholder="Client Location *" id="location" class="form-control" name="location" type="text">
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
-                                <label style="font-weight: 700;">First Contact Date : <span class="asterisk-color">*</span></label>
-                                <input required="required" placeholder="DD/MM/YYYY" class="form-control datepicker" name="date" type="text">
+                                <label>First Contact Date:</label>
+                                <input required="required" placeholder="First Contact Date *" id="fdate" class="form-control" name="first_contact_date" type="date">
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
-                            	<label style="font-weight: 700;">Source : <span class="asterisk-color">*</span></label>
-                                <div class="custom_select">
-                                    <select class="form-control not_chosen">
+                            	<label>Source :</label>
+                                <div class="custom_select" >
+                                    <select class="form-control not_chosen" name = "source">
                                     	<option value="">Facebook</option>
                                     	<option value="1">Instagram</option>
                                     	<option value="2">Phone</option>
@@ -169,13 +148,13 @@
                                 </div>
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
-                                <label style="font-weight: 700;">Reffered By : <span class="asterisk-color">*</span></label>
-                                <input required="required" placeholder="Client Location " id="reffered" class="form-control" name="reffered" type="text">
+                                <label>Referred By :</label>
+                                <input required="required" placeholder="Client Location *" id="reffered" class="form-control" name="refered_by" type="text">
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
-                            	<label style="font-weight: 700;">Process Type : <span class="asterisk-color">*</span></label>
+                            	<label>Process Type* :</label>
                                 <div class="custom_select">
-                                    <select class="form-control not_chosen">
+                                    <select class="form-control not_chosen" name = "process_type">
                                     	<option value="">Process1</option>
                                     	<option value="1">Process2</option>
                                     	<option value="2">Process3</option>
@@ -184,13 +163,13 @@
                             </div>
 
                             <div class="form-group col-lg-3 col-md-6">
-                                <label style="font-weight: 700;">First Registration of : <span class="asterisk-color">*</span></label>
-                                <input required="required" placeholder="First Registration of " id="register" class="form-control" name="register" type="text">
+                                <label>First Registration of :</label>
+                                <input required="required" placeholder="First Registration of *" id="register" class="form-control" name="first_registration_of" type="text">
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
-                            	<label style="font-weight: 700;">Lead Type : <span class="asterisk-color">*</span></label>
+                            	<label>Lead Type* :</label>
                                 <div class="custom_select">
-                                    <select class="form-control not_chosen">
+                                    <select class="form-control not_chosen" name = "lead_type">
                                     	<option value="">Lead Type1</option>
                                     	<option value="1">Lead Type2</option>
                                     	<option value="2">Lead Type3</option>
@@ -198,9 +177,9 @@
                                 </div>
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
-                            	<label style="font-weight: 700;">Search Required : <span class="asterisk-color">*</span></label>
+                            	<label>Search Required* :</label>
                                 <div class="custom_select">
-                                    <select class="form-control not_chosen">
+                                    <select class="form-control not_chosen" name = "search_required">
                                     	<option value="">Search Required1</option>
                                     	<option value="1">Search Required2</option>
                                     	<option value="2">Search Required3</option>
@@ -208,9 +187,9 @@
                                 </div>
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
-                            	<label style="font-weight: 700;">Assigned To : <span class="asterisk-color">*</span></label>
+                            	<label>Assigned To* :</label>
                                 <div class="custom_select">
-                                    <select class="form-control not_chosen">
+                                    <select class="form-control not_chosen" name = "assigned_to">
                                     	<option value="">Assigned To1</option>
                                     	<option value="1">Assigned To</option>
                                     	<option value="2">Assigned To</option>
@@ -219,13 +198,13 @@
                             </div>
                             
                             <div class="form-group col-lg-3 col-md-6">
-                                <label  style="font-weight: 700;">Search Location : <span class="asterisk-color">*</span></label>
-                                <input required="required" placeholder="Search Location" id="search" class="form-control" name="search" type="text">
+                                <label>Search Location * :</label>
+                                <input required="required" placeholder="Search Location *" id="search" class="form-control" name="search_location" type="text">
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
-                            	<label  style="font-weight: 700;">Search Taluka : <span class="asterisk-color">*</span></label>
+                            	<label>Search Taluka* :</label>
                                 <div class="custom_select">
-                                    <select class="form-control not_chosen">
+                                    <select class="form-control not_chosen" name = "search_taluka">
                                     	<option value="">Search Taluka1</option>
                                     	<option value="1">Search Taluka1</option>
                                     	<option value="2">Search Taluka1</option>
@@ -233,9 +212,9 @@
                                 </div>
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
-                            	<label  style="font-weight: 700;">Whatsapp Group Created : <span class="asterisk-color">*</span> </label>
+                            	<label>Whatsapp Group Created:</label>
                                 <div class="custom_select">
-                                    <select class="form-control not_chosen">
+                                    <select class="form-control not_chosen" name = "wa_group">
                                     	<option value="">Yes</option>
                                     	<option value="1">No</option>
 
@@ -243,24 +222,16 @@
                                 </div>
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
-                                <label  style="font-weight: 700;">Whatsapp Group Name  : <span class="asterisk-color">*</span></label>
-                                <input required="required" placeholder="Search Location " id="whatsapp_gname" class="form-control" name="whatsapp_gname" type="text">
+                                <label>Whatsapp Group Name * :</label>
+                                <input required="required" placeholder="Search Location *" id="whatsapp_gname" class="form-control" name="wa_group_name" type="text">
                             </div>
                             <div class="form-group col-lg-3 col-md-6">
-                                <label  style="font-weight: 700;">Alternate Number : <span class="asterisk-color">*</span></label>
-                                <input required="required" placeholder="Alternate Number" id="alternate_no" class="form-control" name="alternate_no" type="Number">
+                                <label>Alternate Number * :</label>
+                                <input required="required" placeholder="Alternate Number *" id="alternate_no" class="form-control" name="number_alt" type="Number">
                             </div>
-                            <div class="form-group col-lg-3 col-md-6">
-                                <label  style="font-weight: 700;">Mater Id : <span class="asterisk-color">*</span></label>
-                                <input required="required" placeholder="Master Id *" id="master_id" class="form-control" name="master_id" type="number">
-                             </div>
                              <div class="form-group col-lg-3 col-md-6">
-                                <label  style="font-weight: 700;">Phone Number : <span class="asterisk-color">*</span></label>
-                                <input required="required" placeholder="Phone Number " id="phone_no" class="form-control" name="phone_no" type="phone">
-                             </div>
-                             <div class="form-group col-lg-3 col-md-6">
-                                <label  style="font-weight: 700;">Branch : <span class="asterisk-color">*</span></label>
-                                <input required="required" placeholder="Branch" id="branch" class="form-control" name="branch" type="text">
+                                <label>Phone Number * :</label>
+                                <input required="required" placeholder="Phone Number *" id="phone_no" class="form-control" name="number" type="phone">
                              </div>
                            <!---- <div class="form-group col-lg-12 col-md-6">
                                 <input placeholder="Enter Subject" id="subject" class="form-control" name="subject" type="subject">
@@ -294,59 +265,17 @@
                
                 <div class="row">
                     <table id="customers">
-                        <tr>
-                          <th>Delete</th>
-                          <th>Edit</th>
-                          <th>Sr. No.</th>
-                          <th>Client Name</th>
-                          <th>Email ID</th>
-                          <th>Whatsapp Group Name</th>
-                          
-                        </tr>
-                        <tr>
-                            <td><a href="#"><i class="ion-android-delete" style="font-size: 25px;color: #dc3545;"></i></a></td>
-                            <td><a href="#"><i class="ion-edit" style="font-size: 25px;color:#218838;"></i></a></td>
-                          <td>1</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                         
-                        </tr>
-                        <tr>
-                            <td><a href="#"><i class="ion-android-delete" style="font-size: 25px;color: #dc3545;"></i></a></td>
-                            <td><a href="#"><i class="ion-edit" style="font-size: 25px;color:#218838;"></i></a></td>
-                          <td>2</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                         
-                        </tr>
-                        <tr>
-                            <td><a href="#"><i class="ion-android-delete" style="font-size: 25px;color: #dc3545;"></i></a></td>
-                            <td><a href="#"><i class="ion-edit" style="font-size: 25px;color:#218838;"></i></a></td>
-                          <td>3</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                         
-                        </tr>
-                        <tr>
-                            <td><a href="#"><i class="ion-android-delete" style="font-size: 25px;color: #dc3545;"></i></a></td>
-                            <td><a href="#"><i class="ion-edit" style="font-size: 25px;color:#218838;"></i></a></td>
-                          <td>4</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                         
-                        </tr>
+                        
+                       
                       </table>
-                    
+                      
+                	
+                   
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 <a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a> 
 <footer>
 	<div class="top_footer text_white">
@@ -375,6 +304,9 @@
                 <div class="col-lg-2 col-md-6 mb-4 mb-lg-0 animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.4s" style="animation-delay: 0.4s; opacity: 1;">
                 	<h6 class="widget_title">USEFUL LINKS</h6>
                     <ul class="list_none widget_links">
+                    	<li><a href="#">Buy Anger Now</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Features</a></li>
                         <li><a href="#">Feedback</a></li>
                         <li><a href="#">Support center</a></li>
                         <li><a href="#">Contact Us</a></li>
@@ -383,6 +315,9 @@
                 <div class="col-lg-2 col-md-6 mb-4 mb-lg-0 animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.4s" style="animation-delay: 0.4s; opacity: 1;">
                 	<h6 class="widget_title">USEFUL LINKS</h6>
                     <ul class="list_none widget_links">
+                    	<li><a href="#">Buy Anger Now</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Features</a></li>
                         <li><a href="#">Feedback</a></li>
                         <li><a href="#">Support center</a></li>
                         <li><a href="#">Contact Us</a></li>
@@ -425,6 +360,169 @@
 </footer>
 <!-- Latest jQuery --> 
 <script src="assets/js/jquery-1.12.4.min.js"></script>
+
+<script>
+
+    document.getElementById("logout").onclick = function() {myFunction()};
+    
+    function myFunction() {
+      localStorage.removeItem("data");
+      localStorage.removeItem("login");
+      location.href = 'index.html';
+    }
+    
+    function redirection(id){
+    if(!id){
+        return
+    }
+    localStorage.setItem("client_id", id);
+    location.href = 'document.html';
+}
+    
+    (function ($) {
+    // get localstorage
+    // if found print on the screen or alert
+    
+    if (typeof(Storage) !== "undefined") {
+      // Code for localStorage/sessionStorage.
+      if( localStorage.login){
+        if(localStorage.data){
+          // print data
+          var jsonop = JSON.parse(localStorage.data)
+          var textline = "Welcome, " + jsonop['user_id']['name']
+          $( "#add" ).text(JSON.stringify(textline)  );
+        }
+        else{
+          location.href = 'index.html';
+        }
+      }
+    } else {
+      location.href = 'index.html';
+      // Sorry! No Web Storage support..
+    }
+    
+    })(jQuery);
+
+
+    (function ($) {
+
+(function ($) {
+    $.fn.serializeFormJSON = function () {
+
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function () {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+})(jQuery);
+
+
+
+function getData(e){
+
+    $.ajax({
+        url: "http://localhost:5000/client/",
+        dataType: "json",
+        type: "post",
+        crossDomain: true,
+        headers: {
+                    "Content-Type": "application/json"
+                },
+        success: function (data, textStatus, jQxhr) {
+            // Clear table
+            $('table').empty()
+
+            $('table').append(
+                $('<tr>'),
+                $('<th>').text("Sr. No."),
+                $('<th>').text("Client Name"),
+                $('<th>').text("Email ID"),
+                $('<th>').text("Whatsapp Group Name"),
+                $('<th>').text("Edit"),
+                $('<th>').text("Delete"),
+                $('</tr>')
+            );
+
+            $.each(data, function(i, item) {
+        var $tr = $('table').append(
+            $('<tr>'),
+            $('<td>').text(i),
+            $('<td>').html("<a href=\"#\" onclick = \"redirection("+item.id+")\">"+item.name+"</a>"),
+            $('<td>').text(item.email),
+            $('<td>').text(item.wa_group_name),
+            $('<td>').html("<a href=\"#\"><i class=\"ion-edit\" style=\"font-size: 25px;color:#218838;\"></i></a>"),
+            $('<td>').html("<a href=\"#\"><i class=\"ion-android-delete\" style=\"font-size: 25px;color: #dc3545;\"></i></a>"),
+            $('</tr>')
+        ); 
+        
+    });
+
+          if(data === {})
+          {console.log('empty')}
+            // add multi table generatio
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+          console.log(errorThrown);
+        },
+      });
+
+    e.preventDefault();
+}
+
+    function processForm(e) {
+        
+      $.ajax({
+        url: "http://localhost:5000/client/",
+        dataType: "json",
+        type: "put",
+        crossDomain: true,
+        headers: {
+                    "Content-Type": "application/json"
+                },
+        data: JSON.stringify($(this).serializeFormJSON()),
+        success: function (data, textStatus, jQxhr) {
+            // if success,
+            // store id in localStorage, redirect to dashboard
+            // else pop up error.
+          if(data === {})
+          {console.log('empty')}
+
+          $("#local").html(JSON.stringify(data) );
+          $("#response pre").html(data);
+          if (typeof(Storage) !== "undefined") {
+            // Code for localStorage/sessionStorage.
+            // localStorage.setItem("login", "done");
+            // localStorage.setItem("data", JSON.stringify(data));
+            alert('Client added')
+            getData()
+            } else {
+            // Sorry! No Web Storage support..
+            }
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+          console.log(errorThrown);
+        },
+      });
+
+      e.preventDefault();
+    }
+
+    // once submitted, 
+    // push to API
+    $("#enq").submit(processForm);
+    getData()
+  })(jQuery);
+    
+    </script>
 <!-- jquery-ui --> 
 <script src="assets/js/jquery-ui.js"></script> 
 <!-- popper min js --> 
@@ -451,7 +549,6 @@
 <script src='assets/js/jquery.elevatezoom.js'></script> 
 <!-- scripts js --> 
 <script src="assets/js/scripts.js"></script>
-<!-- DatePicker js -->
-<script type="text/javascript" src="assets/js/datepicker.min.js"></script>
+
 </body>
 </html>

@@ -48,30 +48,23 @@
             <h2 style="
             font-weight: 600;
             text-transform: uppercase;
-            font-size:25px;
         ">Logo</h2>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="ion-android-menu"></span> </button>
       	<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav">
-               
                 <li>
-                    <a class="nav-link page-scroll active" href="dashboard.html" style="color:#000;">Home</a>
+                    <a class="nav-link page-scroll active" href="#home_section" style="color:#000;">Home</a>
                 </li>
                 <li>
                     <a class="nav-link page-scroll active" href="add_client.html" style="color:#000;">Add Client</a>
                 </li>
                 <li>
-                    <a class="nav-link page-scroll active" href="document.html" style="color:#000;">Document</a>
+                    <a class="nav-link page-scroll active" href="#home_section" style="color:#000;">Document</a>
                 </li>
-                <ul class="navbar-nav attr-nav align-items-center">
-                    <li><a href="index.html" class="nav-link search_trigger"><i class="ion-android-person"></i></a>
-                       
-                    </li>
-                    <li><a href="index.html" class="nav-link search_trigger"><i class="ion-log-out" style="color: #000;font-size: 24px;"></i></a>
-                       
-                    </li>
-                </ul>
+                <li id = 'logout'>
+                  <a class="nav-link page-scroll active" href="#home_section" style="color:#000;">Logout</a>
+              </li>
                 
             </ul>
     </nav>
@@ -79,8 +72,53 @@
 </header>
 <!-- END HEADER --> 
 
+
+<a href="#" class="scrollup" style="display: none;width: 50%;text-align: center;"><i class="ion-ios-arrow-up"></i></a> 
+
+<div id = 'add' style="margin: auto; width: 50%;text-align: center; padding-top: 20px;"></div>
+
 <!-- Latest jQuery --> 
 <script src="assets/js/jquery-1.12.4.min.js"></script>
+<script>
+
+document.getElementById("logout").onclick = function() {myFunction()};
+
+function myFunction() {
+  // document.getElementById("logout").innerHTML = "YOU CLICKED ME!";
+  localStorage.removeItem("data");
+  localStorage.removeItem("login");
+  location.href = 'index.html';
+}
+
+
+(function ($) {
+// get localstorage
+// if found print on the screen or alert
+
+if (typeof(Storage) !== "undefined") {
+  // Code for localStorage/sessionStorage.
+  if( localStorage.login){
+    if(localStorage.data){
+      // print data
+      var jsonop = JSON.parse(localStorage.data)
+      console.log(typeof(jsonop))
+      console.log(jsonop)
+      console.log(jsonop['user_id'])
+      var textline = "Welcome, " + jsonop['user_id']['name']
+      $( "#add" ).text(JSON.stringify(textline)  );
+    }
+    else{
+      location.href = 'index.html';
+    }
+  }
+} else {
+  location.href = 'index.html';
+  // Sorry! No Web Storage support..
+}
+
+})(jQuery);
+
+</script>
 <!-- jquery-ui --> 
 <script src="assets/js/jquery-ui.js"></script> 
 <!-- popper min js --> 

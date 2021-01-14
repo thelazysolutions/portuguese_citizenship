@@ -1,0 +1,27 @@
+<html>
+
+<body>
+    <form>
+        <input type="file" id="myInput">
+    </form>
+    
+
+</body>
+<script src="assets/js/jquery-1.12.4.min.js"></script>
+<script>
+
+$(function() {
+    console.log( "ready!" );
+});
+
+$("#myInput").change(function(){
+            var op = $('#myInput').prop('files')[0];
+            alert("A file has been selected.");
+        });
+
+
+
+// $("#fileInput")[0].files[0]
+
+</script>
+</html>

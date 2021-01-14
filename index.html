@@ -10,8 +10,6 @@
 <!-- SITE TITLE -->
 <title>Login</title>
 
-<!-- Favicon Icon -->
-<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
 <!-- Animation CSS -->
 <link rel="stylesheet" href="assets/css/animate.css">	
 <!-- Latest Bootstrap min CSS -->
@@ -24,8 +22,6 @@
 <!-- Icon Font CSS -->
 <link rel="stylesheet" href="assets/css/ionicons.min.css">
 <link rel="stylesheet" href="assets/css/themify-icons.css">
-<!-- DatePicker CSS -->
-<link href="assets/css/datepicker.min.css" rel="stylesheet">
 <!-- FontAwesome CSS -->
 <link rel="stylesheet" href="assets/css/all.min.css">
 <!--- owl carousel CSS-->
@@ -56,7 +52,7 @@
                         <span> <i class="ion-android-person" style="
                             font-size:30px;color:#0e93d8;"></i></span>
                     </div>
-                    <form method="post" action="dashboard.html" class="login animation" data-animation="fadeInUp" data-animation-delay="0.8s">
+                    <form method="post" id="login_form" action="dashboard.html" class="login animation" data-animation="fadeInUp" data-animation-delay="0.8s">
                         
                         <div class="form-group">
                             <input type="email" required="" class="form-control" name="email" placeholder="Enter The Email *" >
@@ -67,12 +63,12 @@
                         <div class="form-group">
                             <button type="submit" class="btn btn-default btn-block" name="login">Log in</button>
                         </div>
-                        <div class="login_footer">
+                        <!-- <div class="login_footer">
                             <a href="#">Forgot password?</a>
                             <label for="rememberme">
                                 <input name="rememberme" type="checkbox" value="forever"> <span>Remember me</span>
                             </label>
-                        </div>
+                        </div> -->
                         
                     </form>
                 </div>
@@ -85,6 +81,75 @@
 
 <!-- Latest jQuery --> 
 <script src="assets/js/jquery-1.12.4.min.js"></script> 
+<script>
+
+(function ($) {
+
+    (function ($) {
+        $.fn.serializeFormJSON = function () {
+
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (o[this.name]) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+    })(jQuery);
+
+        function processForm(e) {
+            
+            console.log( $(this).serializeFormJSON() )
+          $.ajax({
+            url: "http://localhost:5000/user/login",
+            dataType: "json",
+            type: "post",
+            crossDomain: true,
+            headers: {
+                        "Content-Type": "application/json"
+                    },
+            data: JSON.stringify($(this).serializeFormJSON()),
+            success: function (data, textStatus, jQxhr) {
+                // if success,
+                // store id in localStorage, redirect to dashboard
+                // else pop up error.
+              console.log(typeof(data));
+              console.log(data)
+              if(data === {})
+              {console.log('empty')}
+              console.log(JSON.stringify(data));
+              $("#local").html(JSON.stringify(data) );
+              $("#response pre").html(data);
+              if (typeof(Storage) !== "undefined") {
+                // Code for localStorage/sessionStorage.
+                localStorage.setItem("login", "done");
+                localStorage.setItem("data", JSON.stringify(data));
+                location.href = 'dashboard.html';
+                } else {
+                // Sorry! No Web Storage support..
+                }
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+              console.log(errorThrown);
+            },
+          });
+
+          e.preventDefault();
+        }
+
+        // once submitted, 
+        // push to API
+        $("#login_form").submit(processForm);
+      })(jQuery);
+    
+</script>
 <!-- jquery-ui --> 
 <script src="assets/js/jquery-ui.js"></script>
 <!-- popper min js --> 
