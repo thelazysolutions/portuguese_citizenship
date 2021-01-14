@@ -501,7 +501,7 @@ PAGE JS
 	    $.ajax({
 	        type: "PUT",
 	        dataType: "json",
-	        url: "http://localhost:5000/client",
+	        url: "http://100.25.194.29/client",
 	        data: mydata,
 	        success: function(data) {
 	            if (data.type === "error") {

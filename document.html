@@ -412,7 +412,6 @@
 <script>
 
 document.getElementById("logout").onclick = function() {myFunction()};
-// document.getElementById('date').value = new Date().toDateInputValue();
 
     function myFunction() {
       localStorage.removeItem("data");
@@ -421,11 +420,8 @@ document.getElementById("logout").onclick = function() {myFunction()};
     }
 
     (function ($) {
-        // get localstorage
-        // if found print on the screen or alert
-        
+
         if (typeof(Storage) !== "undefined") {
-        // Code for localStorage/sessionStorage.
         if( localStorage.client_id){
             $('#client_id').val(localStorage.client_id)   
         }
@@ -454,7 +450,7 @@ document.getElementById("logout").onclick = function() {myFunction()};
         function getData(e){
 
         $.ajax({
-            url: "http://localhost:5000/document/",
+            url: "http://100.25.194.29/document/",
             dataType: "json",
             type: "post",
             crossDomain: true,
@@ -462,7 +458,7 @@ document.getElementById("logout").onclick = function() {myFunction()};
                         "Content-Type": "application/json"
                     },
             success: function (data, textStatus, jQxhr) {
-                // Clear table
+
                 $('table').empty()
 
                 $('table').append(
@@ -477,29 +473,27 @@ document.getElementById("logout").onclick = function() {myFunction()};
                 );
 
                 $.each(data, function(i, item) {
-            var $tr = $('table').append(
-                $('<tr>'),
-                $('<td>').text(i),
-                $('<td>').html("<a href=\""+item.attachment+"\">"+item.name+"</a>"),
-                $('<td>').text(item.registration),
-                $('<td>').text(item.to_register),
-                $('<td>').html("<a href=\"#\"><i class=\"ion-edit\" style=\"font-size: 25px;color:#218838;\"></i></a>"),
-                $('<td>').html("<a href=\"#\"><i class=\"ion-android-delete\" style=\"font-size: 25px;color: #dc3545;\"></i></a>"),
-                $('</tr>')
+                var $tr = $('table').append(
+                    $('<tr>'),
+                    $('<td>').text(i),
+                    $('<td>').html("<a href=\""+item.attachment+"\">"+item.name+"</a>"),
+                    $('<td>').text(item.registration),
+                    $('<td>').text(item.to_register),
+                    $('<td>').html("<a href=\"#\"><i class=\"ion-edit\" style=\"font-size: 25px;color:#218838;\"></i></a>"),
+                    $('<td>').html("<a href=\"#\"><i class=\"ion-android-delete\" style=\"font-size: 25px;color: #dc3545;\"></i></a>"),
+                    $('</tr>')
             ); 
             
         });
 
             if(data === {})
             {console.log('empty')}
-                // add multi table generation
             },
             error: function (jqXhr, textStatus, errorThrown) {
             console.log(errorThrown);
             },
         });
 
-        // e.preventDefault();
         }
 
 
@@ -512,7 +506,7 @@ document.getElementById("logout").onclick = function() {myFunction()};
                 form_data.append('file', $('#file').prop('files')[0]);
 
                 $.ajax({
-                    url: "http://localhost:5000/document/file",
+                    url: "http://100.25.194.29/document/file",
                     type: 'POST',
                     data: form_data,
                     success: function (data) {
@@ -525,8 +519,15 @@ document.getElementById("logout").onclick = function() {myFunction()};
                         op_data1 = JSON.parse(op_data)
                         op_data2 = JSON.parse(op_data1)
                         op_data2['attachment'] = data.url
+                        var re = /(([1-2][0-9])|([1-9])|(3[0-1]))\/((1[0-2])|([1-9]))\/([0-9]{4})/;
+                        for (var key in op_data2) {
+                            if (op_data2.hasOwnProperty(key)) {
+                                if(key.includes('date'))
+                                    op_data2[key].replace(op_data2[key], '$8-$5-$1');  
+                            }
+                        }
                         $.ajax({
-                            url: "http://localhost:5000/document/",
+                            url: "http://100.25.194.29/document/",
                             dataType: "json",
                             type: "put",
                             crossDomain: true,
@@ -539,7 +540,6 @@ document.getElementById("logout").onclick = function() {myFunction()};
                                     console.log('empty')
                                 if(data.hasOwnProperty('error')){
                                     alert('Error')
-                                    //
                                 }
                                 alert('Document added')
                                 getData()
@@ -560,13 +560,6 @@ document.getElementById("logout").onclick = function() {myFunction()};
                 console.log('Error in the code')
                 console.log(err)
             }
-
-
-            // return 0
-            
-            // upload the file to S3 and get Link from it. 
-
-
 
             e.preventDefault();
         }
